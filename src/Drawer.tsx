@@ -109,6 +109,7 @@ class TemporaryDrawer extends React.Component<IProps> {
 
     return (
       <div>
+        <h1>Drawer</h1>
         <Button onClick={this.toggleDrawer("left", true)}>Open Left</Button>
         <Button onClick={this.toggleDrawer("right", true)}>Open Right</Button>
         <Button onClick={this.toggleDrawer("top", true)}>Open Top</Button>
