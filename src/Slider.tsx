@@ -32,4 +32,4 @@ class SimpleSlider extends React.Component<IProps, IState> {
   }
 }
 
-export default withStyles(styles)(SimpleSlider as any);
+export default withStyles(styles)(SimpleSlider);

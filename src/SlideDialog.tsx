@@ -1,4 +1,4 @@
-import { withStyles } from "@material-ui/core";
+import { withStyles, WithStyles } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -10,17 +10,14 @@ import * as React from "react";
 
 const styles = {
   paper: {
-    backgroundColor: "#C5CAE9"
+    backgroundColor: "#F00"
+  },
+  root: {
+    backgroundColor: "#333"
   }
 };
 
-interface IProps {
-  classes: {
-    paper: any;
-  };
-}
-
-class AlertDialogSlide extends React.Component<IProps> {
+class AlertDialogSlide extends React.Component<WithStyles<typeof styles>> {
   public state = {
     open: false
   };
@@ -43,7 +40,7 @@ class AlertDialogSlide extends React.Component<IProps> {
           TransitionComponent={this.renderTransition}
           keepMounted={true}
           onClose={this.handleClose}
-          classes={{ paper: this.props.classes.paper }}
+          classes={{}}
         >
           <DialogTitle id="alert-dialog-slide-title">
             {"Use Google's location service?"}
@@ -67,9 +64,7 @@ class AlertDialogSlide extends React.Component<IProps> {
     );
   }
 
-  private renderTransition = (props: IProps) => (
-    <Slide direction="up" {...props} />
-  );
+  private renderTransition = props => <Slide direction="up" {...props} />;
 }
 
-export default withStyles(styles)(AlertDialogSlide as any);
+export default withStyles(styles)(AlertDialogSlide);
